@@ -13,6 +13,7 @@ kill_timeout = "30s"
 
 [env]
   ENABLE_DB_MIGRATIONS=false
+  NODE_OPTIONS="--max-old-space-size=4096"
 
 [deploy]
   release_command = "./release.sh"
@@ -22,8 +23,8 @@ app = "node dist/src/main"
 worker = "yarn worker:prod"
 
 [[vm]]
-  size = "shared-cpu-1x"
-  memory = "2gb"
+  size = "performance-1x"
+  memory = "4gb"
 
 [[services]]
   processes = ["app"]
